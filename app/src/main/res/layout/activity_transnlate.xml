@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Two squares for language selection -->
+    <LinearLayout
+        android:id="@+id/bigLinerL"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_parent">
+        <LinearLayout
+            android:id="@+id/smallLinerL"
+            android:orientation="vertical"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/scan"
+                android:gravity="center"
+                android:layout_marginEnd="4dp"
+                android:id="@+id/appLogo" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RealTimeTextTranslator"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSIze="23sp"
+                android:layout_marginStart="4dp"
+                android:gravity="center"
+                android:id="@+id/logoText" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="40dp"
+            android:weightSum="3"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <Spinner
+                android:id="@+id/idFromSpinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="3dp"
+                android:padding="3dp"
+                android:gravity="center">
+            </Spinner>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/transfer"
+                android:gravity="center"
+                android:layout_marginEnd="4dp"
+                android:id="@+id/app" />
+            <Spinner
+                android:id="@+id/idTOSpinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="3dp"
+                android:padding="3dp"
+                android:gravity="center">
+            </Spinner>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    <!-- EditText for original text -->
+
+</ScrollView>
