@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class TranslateActivity extends AppCompatActivity {
-    String[] fromLanguages = {"English", "Arabic", "French", "German"};
-    String[] toLanguages = {"English", "Arabic", "French", "German"};
+    String[] fromLanguages = {"From","English", "Arabic", "French", "German"};
+    String[] toLanguages = {"TO","English", "Arabic", "French", "German"};
 
 //    private String inputText;
 //
