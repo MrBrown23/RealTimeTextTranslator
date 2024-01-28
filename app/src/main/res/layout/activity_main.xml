@@ -7,41 +7,55 @@
     android:background="@color/my_blue"
     tools:context=".MainActivity">
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/photo_scan"
         android:layout_marginTop="70dp"
-        android:id="@+id/idVLogo" />
+        android:id="@+id/captureIV"
+
+        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/idVLogo"
+        android:layout_below="@+id/captureIV"
         android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:gravity="center"
-        android:text="Real Time Text Translator App"
+        android:text="Click translate after you snap"
         android:layout_centerHorizontal="true"
         android:textColor="@color/white"
         android:textAlignment="center"
         android:textStyle="bold"
         android:textSize="20sp"
-        android:id="@+id/welcome_text" />
+        android:id="@+id/waiting_text" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/welcome_text"
+        android:layout_below="@+id/waiting_text"
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
-        android:onClick="goScanner"
-        android:text="Capture Image"
-        android:id="@+id/captureBtn"
+        android:text="Snap"
+        android:id="@+id/SnapBtn"
         android:background="@drawable/black_button"
         app:backgroundTint="@color/my_dark_blue"
         />
+
+    <Button
+        android:id="@+id/detectBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SnapBtn"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/black_button"
+        android:text="Translate
+"
+        app:backgroundTint="@color/my_dark_blue" />
 
 
 </RelativeLayout>

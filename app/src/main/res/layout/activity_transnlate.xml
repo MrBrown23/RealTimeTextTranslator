@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/my_blue"
+    tools:context=".TranslateActivity">
 
     <!-- Two squares for language selection -->
     <LinearLayout
         android:id="@+id/bigLinerL"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_parent"
-        android:background="@color/my_blue">
+        android:layout_height="wrap_content"
+        >
         <LinearLayout
             android:id="@+id/smallLinerL"
             android:orientation="vertical"
@@ -34,7 +38,7 @@
                 android:text="RealTimeTextTranslator"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:textSIze="23sp"
+                android:textSize="23sp"
                 android:layout_marginStart="4dp"
                 android:gravity="center"
                 android:id="@+id/logoText" />
@@ -49,7 +53,7 @@
             android:layout_height="60dp"
             android:background="@drawable/background"
             android:elevation="4dp"
-        >
+            >
             <Spinner
                 android:id="@+id/idFromSpinner"
                 android:layout_width="0dp"
@@ -68,7 +72,7 @@
                 android:layout_marginEnd="4dp"
                 android:id="@+id/app" />
             <Spinner
-                android:id="@+id/idTOSpinner"
+                android:id="@+id/idToSpinner"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -94,7 +98,6 @@
                 android:ems="10"
                 android:importantForAutofill="no"
                 android:gravity="top"
-                android:inputText="match_parent"
                 android:textColor="@color/black"
                 android:textSize="19sp"
                 android:background="@drawable/background"
@@ -108,44 +111,57 @@
             android:layout_margin="20dp"
             android:id="@+id/translationBtn"
             android:background="@color/my_dark_blue"
+            app:backgroundTint="@color/my_dark_blue"
             android:text="Translate"
             android:textSize="19sp"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/TranslatedTextIV"
             android:elevation="3dp"
+            android:background="@drawable/background"
+            android:layout_marginTop="10dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
             android:layout_gravity="center"
-            android:padding="16sp"
             android:text="Translated Text Here"
+            android:textAlignment="center"
+            android:padding="16sp"
             android:textSize="16sp"
-            android:textColor="@color/colorPrimary"
             android:letterSpacing="0.03"
             android:visibility="gone"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="3dp"
+            android:text="Or"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+
+            />
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/recoder"
+            android:padding="4dp"
+            android:id="@+id/miceIV"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
             />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:elevation="3dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            android:padding="16sp"
-            android:text="Translated Text Here"
+            android:text="Say something"
             android:textSize="16sp"
-            android:textColor="@color/colorPrimary"
-            android:letterSpacing="0.03"
-            android:visibility="gone"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:textAlignment="center"
+
             />
-
-
-
-
-
     </LinearLayout>
 
 
