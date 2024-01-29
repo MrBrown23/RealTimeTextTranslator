@@ -6,6 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
@@ -44,8 +47,8 @@ public class TranslateActivity extends AppCompatActivity {
     private ImageView appLogo;
     private TextView translateIV;
 
-    String[] fromLanguage = {"To", "English", "Afrikaans", "Arabic", "Belarusian", "Bulgarian", "Bengali", "Catalan", "Czech", "French", "German",  "Hindi", "Spanish", "Urdu", "Welch"};
-    String[] toLanguage = {"from", "English", "Afrikaans", "Arabic", "Belarusian", "Bulgarian", "Bengali", "Catalan", "Czech",  "French", "German", "Hindi","Spanish", "Urdu", "Welch"};
+    String[] fromLanguage = {"From", "English", "Afrikaans", "Arabic", "Belarusian", "Bulgarian", "Bengali", "Catalan", "Czech", "French", "German",  "Hindi", "Spanish", "Urdu", "Welch"};
+    String[] toLanguage = {"To", "English", "Afrikaans", "Arabic", "Belarusian", "Bulgarian", "Bengali", "Catalan", "Czech",  "French", "German", "Hindi","Spanish", "Urdu", "Welch"};
 
     private static final int REQUEST_PERMISSION_CODE = 1;
     String languageCode, fromLanguageCode, toLanguageCode;
@@ -154,9 +157,35 @@ public class TranslateActivity extends AppCompatActivity {
             }
         });
 
+        translateIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String textToCopy = translateIV.getText().toString();
+
+                copyToClipboard(textToCopy);
+
+                showToast("Text copied to clipboard");
+            }
+        });
+
 
 
     }
+
+
+    private void copyToClipboard(String text) {
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("Copied Text", text);
+        if (clipboard != null) {
+            clipboard.setPrimaryClip(clip);
+        }
+    }
+
+    private void showToast(String message) {
+
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
 
     private void translateText(String fromLanguageCode, String toLanguageCode, String source) {
         translateIV.setText("Downloading model please wait!");
@@ -213,7 +242,6 @@ public class TranslateActivity extends AppCompatActivity {
             sourceText.setText(result.get(0));
         }
     }
-    //    String[] toLanguage = {"from", "English", "Afrikaans", "Arabic", "Belarusian", "Bulgarian", "Bengali", "Catalan", "Czech",  "French", "German", "Hindi","Spanish", "Urdu", "Welch"};
 
     private String getLanguageCode(String language) {
         String languageCode = "none";

@@ -14,6 +14,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
@@ -131,6 +132,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+
     private void runTextRecognition(Bitmap bitmap) {
         InputImage image = InputImage.fromBitmap(bitmap, 0);
 
@@ -148,6 +151,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onSuccess(Text visionText) {
                         progressDialog.dismiss();
                         processTextRecognitionResult(visionText);
+
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -164,9 +169,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void detectText() {
         if (imageBitmap != null) {
-            runTextRecognition(imageBitmap);
-            float scaleFactor = 1.5f;
+            float scaleFactor = 1.2f;
             scaleAndRunTextRecognition(imageBitmap, scaleFactor);
+            runTextRecognition(imageBitmap);
 
         } else {
             showManualTextEntryDialog("Image");
@@ -178,15 +183,12 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitle("No "+s+" Detected");
         builder.setMessage("Do you want to enter text manually?");
 
-        // Add buttons
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                // User clicked Yes, handle accordingly
                 Intent newActivity = new Intent(MainActivity.this, TranslateActivity.class);
                 newActivity.putExtra("textToTranslate", "");
                 startActivity(newActivity);
                 dialog.dismiss();
-//                showManualTextEntryEditTextDialog();
             }
         });
 
@@ -248,6 +250,10 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("Result===================================================================================================Result");
         System.out.println(textToTranslate);
         progressDialog.dismiss();
+        if(textToTranslate.equals(""))
+        {
+            showManualTextEntryDialog("Text");
+        }
     }
 
 }
